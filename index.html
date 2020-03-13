@@ -16,13 +16,19 @@
 
       <div class="col-md-3 col-sm-12 py-4 bg-dark" >
         <div class="left-panel">
-          <li class="list-group-item active bg-info"> Codeforces Contest</li>
-          <li class="list-group-item menu first" onclick="fetch('Div3' , this)"> Div3 Contest</li>
-          <li class="list-group-item menu" onclick="fetch('Div2', this)"> Div2 Contest</li>
-          <li class="list-group-item menu" onclick="fetch('Div1', this)"> Div1 Contest</li>
-          <li class="list-group-item menu" onclick="fetch('Educational', this)"> Educational Contest</li>
-          <li class="list-group-item menu" onclick="fetch('Hello', this)"> Hello/Good Bye</li>
-          <li class="list-group-item menu rounded-bottom" onclick="fetch('Other', this)"> Other Contest</li>
+          <li class="list-group-item active bg-info" onclick="hideshow('.menu1')"> Codeforces Contest <i class="down-arrow float-right mt-1 mr-2"></i></li>
+          <li class="list-group-item menu first menu1" onclick="fetch('Div3' , this)"> Div3 Contest</li>
+          <li class="list-group-item menu menu1" onclick="fetch('Div2', this)"> Div2 Contest</li>
+          <li class="list-group-item menu menu1" onclick="fetch('Div1', this)"> Div1 Contest</li>
+          <li class="list-group-item menu menu1" onclick="fetch('Educational', this)"> Educational Contest</li>
+          <li class="list-group-item menu menu1" onclick="fetch('Hello', this)"> Hello/Good Bye</li>
+          <li class="list-group-item menu menu1 rounded-bottom" onclick="fetch('Other', this)"> Other Contest</li>
+
+          <li class="list-group-item active rounded-top mt-3 bg-info" onclick="hideshow('.menu2')"> Codechef Contest <i class="down-arrow float-right mt-1 mr-2"></i></li>
+          <li class="list-group-item menu menu2 d-none" onclick="codechef()"> Long Challenge </li>
+          <li class="list-group-item menu menu2 d-none" onclick="codechef()"> Cook Off </li>
+          <li class="list-group-item menu menu2 d-none rounded-bottom" onclick="codechef()"> Lunchtime </li>
+
           <button type="button" class="btn btn-outline-info mt-3 w-100" data-toggle="modal" data-target="#exampleModal"> Fetch Your Info !!</button>
           <button type="button" class="btn btn-outline-info mt-3 w-100" onclick="theme(true)"> Switch Theme !!</button>
 

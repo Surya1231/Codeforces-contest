@@ -114,3 +114,12 @@ function fetch(str , ele){
 function theme(val){
   $('.right').toggleClass('ddark');
 }
+
+function hideshow(c){
+  var all = ['.menu1' , '.menu2'];
+  console.log(c);
+  $(c).toggleClass('d-none');
+  all.forEach(function(item){
+    if(item!=c) $(item).addClass('d-none');
+  })
+}
