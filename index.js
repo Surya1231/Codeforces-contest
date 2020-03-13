@@ -16,7 +16,7 @@ xhr.send();
 
 var wait = '<div class="alert alert-success"><h4> We are fetching contest for you please wait ..... <br> Do not refresh the page</h4> </div>'
 var obj = {} , obj3 = {};
-var div2 = [] , div3 = [] , div1 = [] , edu = [] , other = [];
+var div2 = [] , div3 = [] , div1 = [] , edu = [] , other = [] , hello = [];
 var userhandle = "";
 var is_user = false;
 var user = {};
@@ -24,9 +24,10 @@ var user = {};
 function ready(json){
   json.result.forEach(function(item){
     if(item.name.indexOf("(Div. 3)") != -1) div3.push([item.name,item.id]);
-    else if(item.name.indexOf("(Div. 2)") != -1 && item.name.indexOf("#393") == -1) div2.push([item.name,item.id]);
+    else if(item.name.indexOf("(Div. 2)") != -1) div2.push([item.name,item.id]);
     else if(item.name.indexOf("(Div. 1)") != -1) div1.push([item.name,item.id]);
     else if(item.name.indexOf("Educational") != -1) edu.push([item.name,item.id]);
+    else if(item.name.indexOf('Hello') !=-1 || item.name.indexOf('Good') !=-1 ) hello.push([item.name,item.id]);
     else other.push([item.name,item.id]);
   });
 
@@ -35,6 +36,7 @@ function ready(json){
   obj['Div3'] = div3;
   obj['Educational'] = edu;
   obj['Other'] = other;
+  obj['Hello'] = hello;
   fetch('Div3' , '.first');
 }
 
