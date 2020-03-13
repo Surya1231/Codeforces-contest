@@ -82,11 +82,11 @@ function fetch(str , ele){
     var cur=item[0]+' '+' :  <a target="_blank" href="'+link+'">'+link+'</a>'
     table += '<tr><th scope="row">'+(index+1)+'</th><td>'+cur+'</td>';
 
-    var ss = "0";
     if(is_user && obj3[item[1]] && obj3[item[1]].size > 0){
-      ss = "";
-      for (let q of obj3[item[1]]) ss+=q + ' ';
-      table += '<td class="bg-info">'+ss+'</td></tr>';
+      var arr = [];
+      for (let q of obj3[item[1]]) arr.push(q);
+      arr.sort();
+      table += '<td class="bg-info">'+arr.join(' ')+'</td></tr>';
     }
     else{
       table += '<td> 0</td></tr>';
