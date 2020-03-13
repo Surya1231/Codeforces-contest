@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" href="logo.png" >
+    <title> Codeshow-Contest </title>
+  </head>
+
+  <body>
+    <div class="row mx-0">
+
+      <div class="col-md-3 col-sm-12 py-4 bg-dark" >
+        <div class="left-panel">
+          <a class="list-group-item menu first" onclick="fetch('Div3' , this)"> Div3 Contest</a>
+          <li class="list-group-item menu" onclick="fetch('Div2', this)"> Div2 Contest</li>
+          <li class="list-group-item menu" onclick="fetch('Div1', this)"> Div1 Contest</li>
+          <li class="list-group-item menu" onclick="fetch('Educational', this)"> Educational Contest</li>
+          <li class="list-group-item menu" onclick="fetch('Other', this)"> Other Contest</li>
+          <button type="button" class="btn btn-outline-info mt-3 w-100" data-toggle="modal" data-target="#exampleModal"> Fetch Your Info !!</button>
+          <button type="button" class="btn btn-outline-info mt-3 w-100" onclick="theme(true)"> Switch Theme !!</button>
+        </div>
+      </div>
+
+      <div class="col-md-9 col-sm-12 py-4 right">
+        <div class="alert alert-info">
+          <h5> Welcome to Codeforces Contest-Portal </h5>
+        </div>
+        <div id="right-panel">
+          <div class="alert alert-success">
+              <h4> We are fetching contest for you please wait .....</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"> Fetch Your Info</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                  <label for="email">Codeforces Username:</label>
+                  <input type="text" class="form-control" id="username" required>
+                  <small id="emailHelp" class="form-text text-muted">Refreshing will lost all the information. So please do not refresh website.</small>
+                </div>
+                <div class="fetch-info">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit"onclick="userfetch()" data-dismiss="modal" class="btn btn-primary">Done</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <script type="text/javascript" src="index.js"> </script>
+    </div>
+  </body>
+</html>
