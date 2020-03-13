@@ -16,21 +16,30 @@
 
       <div class="col-md-3 col-sm-12 py-4 bg-dark" >
         <div class="left-panel">
-          <a class="list-group-item menu first" onclick="fetch('Div3' , this)"> Div3 Contest</a>
+          <li class="list-group-item active bg-info"> Codeforces Contest</li>
+          <li class="list-group-item menu first" onclick="fetch('Div3' , this)"> Div3 Contest</li>
           <li class="list-group-item menu" onclick="fetch('Div2', this)"> Div2 Contest</li>
           <li class="list-group-item menu" onclick="fetch('Div1', this)"> Div1 Contest</li>
           <li class="list-group-item menu" onclick="fetch('Educational', this)"> Educational Contest</li>
           <li class="list-group-item menu" onclick="fetch('Hello', this)"> Hello/Good Bye</li>
-          <li class="list-group-item menu" onclick="fetch('Other', this)"> Other Contest</li>
+          <li class="list-group-item menu rounded-bottom" onclick="fetch('Other', this)"> Other Contest</li>
           <button type="button" class="btn btn-outline-info mt-3 w-100" data-toggle="modal" data-target="#exampleModal"> Fetch Your Info !!</button>
           <button type="button" class="btn btn-outline-info mt-3 w-100" onclick="theme(true)"> Switch Theme !!</button>
+
+          <li class="list-group-item bg-info active mt-3 rounded-top"> MNIT Leaderboard</li>
+          <li class="list-group-item  menu" onclick="leaderboard('Div1', this)"> 2nd year </li>
+          <li class="list-group-item  menu" onclick="leaderboard('Educational', this)"> 1st year </li>
+          <li class="list-group-item  menu" onclick="leaderboard('Other', this)"> Specific contest </li>
         </div>
       </div>
 
       <div class="col-md-9 col-sm-12 py-4 right">
-        <div class="alert alert-info">
+        <div class="alert alert-info notf1">
           <h5> Welcome to Codeforces Contest-Portal </h5>
           <p> To know number of questions solved by you click on fetch your status. </p>
+        </div>
+        <div class="alert alert-success notf2">
+          <h6 class="w-100"> No of Questions Solved : 0 <span class="float-right"> No of Contest : 0/0 </span></h6>
         </div>
         <div id="right-panel">
           <div class="alert alert-success">
@@ -67,6 +76,7 @@
       </div>
 
         <script type="text/javascript" src="index.js"> </script>
+        <script type="text/javascript" src="index2.js"> </script>
     </div>
   </body>
 </html>

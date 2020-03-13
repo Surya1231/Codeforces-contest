@@ -43,8 +43,8 @@ function ready(json){
 function userfetch(){
   var xhr1 = new XMLHttpRequest();
   userhandle = $('#username').val();
-  $('.alert').html('<h5> Fetching results for : '+userhandle+'</h5>');
-  $('.alert').addClass('alert-danger');
+  $('.notf1').html('<h5> Fetching results for : '+userhandle+'</h5>');
+  $('.notf1').addClass('alert-danger');
   obj3 = {};
   var url = "https://codeforces.com/api/user.status?handle="+userhandle
   xhr1.open("GET", url, true);
@@ -59,13 +59,13 @@ function userfetch(){
               }
             });
             is_user = true;
-            $('.alert').removeClass('alert-danger');
-            $('.alert').html('<h5> Successfuly fetched results for : '+userhandle+'</h5>');
+            $('.notf1').removeClass('alert-danger');
+            $('.notf1').html('<h5> Successfuly fetched results for : '+userhandle+'</h5>');
             fetch('Div3' , '.first');
           }
       }
       else if(xhr1.readyState === 4) {
-        $('.alert').html('<h5> Unable to reach Codeforces. Try Refreshing</h5>');
+        $('.notf1').html('<h5> Unable to reach Codeforces. Try Refreshing</h5>');
       }
   };
   console.log("Started fetching");
@@ -74,11 +74,13 @@ function userfetch(){
 
 function fetch(str , ele){
   $('#right-panel').html(wait);
-  $('.menu').removeClass("active");
-  $(ele).addClass("active");
+  $('.menu').removeClass("list-group-item-primary");
+  $(ele).addClass("list-group-item-primary");
   if(!obj[str]){ $('#right-panel').html(err); return; }
   var l = obj[str].length;
   var table = '<table class="table table-bordered"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">Contest & URL</th><th scope="col">Solved</th></tr></thead><tbody>'
+
+  var ques = 0, cont = 0;
   obj[str].forEach(function(item , index){
     var link = "https://codeforces.com/contest/"+item[1];
     var cur=item[0]+' '+' :  <a target="_blank" href="'+link+'">'+link+'</a>'
@@ -91,6 +93,8 @@ function fetch(str , ele){
       var arr = [];
       for (let q of obj3[item[1]]) arr.push(q);
       arr.sort();
+      ques+=arr.length;
+      cont+=1;
       table += '<td class="bg-info">'+arr.join(' ')+'</td></tr>';
     }
     else{
@@ -99,8 +103,9 @@ function fetch(str , ele){
   });
 
   table+="</tbody></table>";
+  var notf2 = '<h6 class="w-100"> No of Questions Solved : '+ques+'<span class="float-right"> No of Contest :' + cont+'/'+l+'</span></h6>';
   $('#right-panel').html(table);
-
+  $('.notf2').html(notf2);
   $([document.documentElement, document.body]).animate({
        scrollTop: $("#right-panel").offset().top
    }, 2000);
