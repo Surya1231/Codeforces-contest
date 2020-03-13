@@ -37,3 +37,8 @@ html ,body{
 .ddark > #right-panel > table {
   color: white !important;
 }
+
+.ddark > #right-panel > table > tbody > .bg-light{
+  background-color: #194745 !important;
+  color: white !important;
+}

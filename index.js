@@ -80,7 +80,10 @@ function fetch(str , ele){
   obj[str].forEach(function(item , index){
     var link = "https://codeforces.com/contest/"+item[1];
     var cur=item[0]+' '+' :  <a target="_blank" href="'+link+'">'+link+'</a>'
-    table += '<tr><th scope="row">'+(index+1)+'</th><td>'+cur+'</td>';
+
+    var bgg = "";
+    if(is_user && obj3[item[1]] && obj3[item[1]].size > 0){ bgg = "bg-light";}
+    table += '<tr class="'+bgg+'"><th scope="row">'+(index+1)+'</th><td>'+cur+'</td>';
 
     if(is_user && obj3[item[1]] && obj3[item[1]].size > 0){
       var arr = [];
