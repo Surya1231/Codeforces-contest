@@ -8,8 +8,7 @@ xhr.onreadystatechange = function () {
         var json = JSON.parse(xhr.responseText);
         ready(json);
     }
-    else{
-      console.log("here");
+    else if(xhr.readyState === 4){
       $('#right-panel').html(err);
     }
 };
@@ -63,7 +62,7 @@ function userfetch(){
             fetch('Div3' , '.first');
           }
       }
-      else {
+      else if(xhr1.readyState === 4) {
         $('.alert').html('<h5> Unable to reach Codeforces. Try Refreshing</h5>');
       }
   };
@@ -103,6 +102,5 @@ function fetch(str , ele){
 }
 
 function theme(val){
-  console.log(val);
   $('.right').toggleClass('ddark');
 }
