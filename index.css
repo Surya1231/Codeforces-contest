@@ -97,7 +97,7 @@ body{
     height: 100%;
     display: block !important;
     font-size: 1rem;
-    transition: left 1s linear;
+    transition: left 0.5s linear;
     left: -320px;
     width: 300px;
     overflow-x: hidden;
@@ -106,6 +106,6 @@ body{
 
   .supersp{
     left : 0px;
-    transition: left 1s linear;
+    transition: left 0.5s linear;
   }
 }

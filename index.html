@@ -32,12 +32,12 @@
 
 
           <li class="list-group-item active bg-info rounded-0 sectionhead" onclick="hideshow('.menu1')"> Codeforces Contest <i class="down-arrow float-right mt-1 mr-2"></i></li>
-          <li class="list-group-item menu first menu1" onclick="fetch('Div3' , this)"> Div3 Contest</li>
-          <li class="list-group-item menu menu1" onclick="fetch('Div2', this)"> Div2 Contest</li>
-          <li class="list-group-item menu menu1" onclick="fetch('Div1', this)"> Div1 Contest</li>
-          <li class="list-group-item menu menu1" onclick="fetch('Educational', this)"> Educational Contest</li>
-          <li class="list-group-item menu menu1" onclick="fetch('Hello', this)"> Hello/Good Bye</li>
-          <li class="list-group-item menu menu1" onclick="fetch('Other', this)"> Other Contest</li>
+          <li class="list-group-item menu first menu1" onclick="render('Div3' , this)"> Div3 Contest</li>
+          <li class="list-group-item menu menu1" onclick="render('Div2', this)"> Div2 Contest</li>
+          <li class="list-group-item menu menu1" onclick="render('Div1', this)"> Div1 Contest</li>
+          <li class="list-group-item menu menu1" onclick="render('Educational', this)"> Educational Contest</li>
+          <li class="list-group-item menu menu1" onclick="render('Hello', this)"> Hello/Good Bye</li>
+          <li class="list-group-item menu menu1" onclick="render('Other', this)"> Other Contest</li>
 
           <li class="list-group-item active bg-info sectionhead" onclick="hideshow('.menu2')"> Codechef Contest <i class="down-arrow float-right mt-1 mr-2"></i></li>
           <li class="list-group-item menu menu2 d-none" onclick="codechef()"> Long Challenge </li>
@@ -89,7 +89,7 @@
                 <div class="form-group">
                   <label for="email">Codeforces Username:</label>
                   <input type="text" class="form-control" id="username" required>
-                  <small id="emailHelp" class="form-text text-muted">Refreshing will lost all the information. So please do not refresh website.</small>
+                  <small id="emailHelp" class="form-text text-muted">Once fetched data will be store in catche. Data will not lost on refreshing. </small>
                 </div>
                 <div class="fetch-info">
 
@@ -97,44 +97,12 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit"onclick="userfetch()" data-dismiss="modal" class="btn btn-primary">Done</button>
+                <button type="submit"onclick="new_user()" data-dismiss="modal" class="btn btn-primary">Done</button>
             </div>
           </div>
         </div>
       </div>
 
-        <div class="modal fade" id="mobile_nav" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog  modal-dialog-centered" role="document">
-            <div class="modal-content border-0">
-              <div class="modal-body p-0 bg-dark">
-                <div class="left-panel">
-                  <li class="list-group-item active bg-info rounded-0 sectionhead" onclick="hideshow('.menu1')"> Codeforces Contest <i class="down-arrow float-right mt-1 mr-2"></i></li>
-                  <li class="list-group-item menu first menu1" onclick="fetch('Div3' , this)" data-dismiss="modal"> Div3 Contest</li>
-                  <li class="list-group-item menu menu1" onclick="fetch('Div2', this)" data-dismiss="modal"> Div2 Contest</li>
-                  <li class="list-group-item menu menu1" onclick="fetch('Div1', this)" data-dismiss="modal"> Div1 Contest</li>
-                  <li class="list-group-item menu menu1" onclick="fetch('Educational', this)" data-dismiss="modal"> Educational Contest</li>
-                  <li class="list-group-item menu menu1" onclick="fetch('Hello', this)" data-dismiss="modal"> Hello/Good Bye</li>
-                  <li class="list-group-item menu menu1" onclick="fetch('Other', this)" data-dismiss="modal" > Other Contest</li>
-
-                  <li class="list-group-item active bg-info sectionhead" onclick="hideshow('.menu2')"> Codechef Contest <i class="down-arrow float-right mt-1 mr-2"></i></li>
-                  <li class="list-group-item menu menu2 d-none" onclick="codechef()" data-dismiss="modal" > Long Challenge </li>
-                  <li class="list-group-item menu menu2 d-none" onclick="codechef()" data-dismiss="modal"> Cook Off </li>
-                  <li class="list-group-item menu menu2 d-none" onclick="codechef()" data-dismiss="modal"> Lunchtime </li>
-
-                  <li class="list-group-item active bg-info sectionhead" onclick="hideshow('.menu3')"> MNIT Section <i class="down-arrow float-right mt-1 mr-2"></i></li>
-                  <li class="list-group-item  menu menu3 d-none" onclick="leaderboard('Div1', this)" data-dismiss="modal"> 2nd year </li>
-                  <li class="list-group-item  menu menu3 d-none" onclick="leaderboard('Educational', this)" data-dismiss="modal"> 1st year </li>
-                  <li class="list-group-item  menu rounded-0 menu3 d-none" onclick="leaderboard('Other', this)" data-dismiss="modal"> Specific contest </li>
-
-                  <button type="button" class="btn border-left-0 rounded-0 btn-outline-info mt-3 w-100" data-toggle="modal" data-target="#exampleModal" data-dismiss="modal"> Fetch Your Info !!</button>
-                  <button type="button" class="btn border-left-0 rounded-0 btn-outline-info w-100" onclick="theme(true)" data-dismiss="modal"> Switch Theme !!</button>
-                </div>
-
-              </div>
-              <button type="button" class="rounded-0 btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
 
 
         <script type="text/javascript" src="index.js"> </script>

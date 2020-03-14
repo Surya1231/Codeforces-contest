@@ -19,12 +19,13 @@
 function leaderboard() {
   $('.notf2').html('<h6 class="w-100"> Coming Soon !!!</h6>');
   $('#right-panel').html(' ');
+  $('.sp').removeClass('supersp');
 
   var table = '<table class="table table-bordered"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">username</th><th scope="col"> Max-Rating </th> <th scope="col">Curr-Rating</th></tr></thead><tbody>'
-
 }
 
 function codechef(){
   $('.notf2').html('<h6 class="w-100"> Coming Soon !!!</h6>');
   $('#right-panel').html(' ');
+  $('.sp').removeClass('supersp');
 }
