@@ -106,9 +106,7 @@ function fetch(str , ele){
   var notf2 = '<h6 class="w-100"> No of Questions Solved : '+ques+'<span class="float-right"> No of Contest :' + cont+'/'+l+'</span></h6>';
   $('#right-panel').html(table);
   $('.notf2').html(notf2);
-  $([document.documentElement, document.body]).animate({
-       scrollTop: $("#right-panel").offset().top
-   }, 2000);
+  mob();
 }
 
 function theme(val){
@@ -122,4 +120,9 @@ function hideshow(c){
   // all.forEach(function(item){
   //   if(item!=c) $(item).addClass('d-none');
   // })
+}
+
+function mob(){
+  console.log("nav changed");
+  $('.pp').toggleClass('supersp');
 }

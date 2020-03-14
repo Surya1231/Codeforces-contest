@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <link rel="shortcut icon" href="logo.png" >
     <title> Codeshow-Contest </title>
@@ -14,8 +15,22 @@
   <body>
     <div class="row mx-0">
 
-      <div class="col-md-2 col-sm-12 px-0 bg-dark d-none d-md-block" >
-        <div class="left-panel">
+      <div class="col-md-2 col-sm-12 px-0 bg-dark pp sp" >
+        <div class=" w-100 pr-2 text-white">
+          <div class="h-100 d-block float-left pl-3 pt-3">
+            <h5> Codeshows </h5>
+          </div>
+          <button type="button" class=" d-md-none btn btn-outline-info my-2 switcher float-right" onclick="mob()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </button>
+          <div class="clearfix"></div>
+        </div>
+        <div class="left-panel pb-4">
+
+
+
           <li class="list-group-item active bg-info rounded-0 sectionhead" onclick="hideshow('.menu1')"> Codeforces Contest <i class="down-arrow float-right mt-1 mr-2"></i></li>
           <li class="list-group-item menu first menu1" onclick="fetch('Div3' , this)"> Div3 Contest</li>
           <li class="list-group-item menu menu1" onclick="fetch('Div2', this)"> Div2 Contest</li>
@@ -42,7 +57,7 @@
 
       <div class="col-md-10 col-sm-12 py-4 right">
 
-          <button type="button" class="d-md-none btn btn-outline-info my-2 switcher" data-toggle="modal" data-target="#mobile_nav">
+          <button type="button" class="d-md-none btn btn-outline-info my-2 switcher" onclick="mob()">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
