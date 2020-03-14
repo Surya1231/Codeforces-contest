@@ -2,8 +2,21 @@ html ,body{
   height: 100%;
 }
 
+body{
+  font-size: 0.8rem;
+}
+
+.btn{
+  font-size: 0.8rem;
+}
+
 .row,.bg-dark{
   height: 100%;
+}
+
+.sectionhead {
+  color: white !important;
+  cursor: pointer;
 }
 
 .list-group-item{

@@ -14,32 +14,32 @@
   <body>
     <div class="row mx-0">
 
-      <div class="col-md-3 col-sm-12 py-4 bg-dark" >
+      <div class="col-md-2 col-sm-12 px-0 bg-dark" >
         <div class="left-panel">
-          <li class="list-group-item active bg-info" onclick="hideshow('.menu1')"> Codeforces Contest <i class="down-arrow float-right mt-1 mr-2"></i></li>
+          <li class="list-group-item active bg-info rounded-0 sectionhead" onclick="hideshow('.menu1')"> Codeforces Contest <i class="down-arrow float-right mt-1 mr-2"></i></li>
           <li class="list-group-item menu first menu1" onclick="fetch('Div3' , this)"> Div3 Contest</li>
           <li class="list-group-item menu menu1" onclick="fetch('Div2', this)"> Div2 Contest</li>
           <li class="list-group-item menu menu1" onclick="fetch('Div1', this)"> Div1 Contest</li>
           <li class="list-group-item menu menu1" onclick="fetch('Educational', this)"> Educational Contest</li>
           <li class="list-group-item menu menu1" onclick="fetch('Hello', this)"> Hello/Good Bye</li>
-          <li class="list-group-item menu menu1 rounded-bottom" onclick="fetch('Other', this)"> Other Contest</li>
+          <li class="list-group-item menu menu1" onclick="fetch('Other', this)"> Other Contest</li>
 
-          <li class="list-group-item active rounded-top mt-3 bg-info" onclick="hideshow('.menu2')"> Codechef Contest <i class="down-arrow float-right mt-1 mr-2"></i></li>
+          <li class="list-group-item active bg-info sectionhead" onclick="hideshow('.menu2')"> Codechef Contest <i class="down-arrow float-right mt-1 mr-2"></i></li>
           <li class="list-group-item menu menu2 d-none" onclick="codechef()"> Long Challenge </li>
           <li class="list-group-item menu menu2 d-none" onclick="codechef()"> Cook Off </li>
-          <li class="list-group-item menu menu2 d-none rounded-bottom" onclick="codechef()"> Lunchtime </li>
+          <li class="list-group-item menu menu2 d-none" onclick="codechef()"> Lunchtime </li>
 
-          <button type="button" class="btn btn-outline-info mt-3 w-100" data-toggle="modal" data-target="#exampleModal"> Fetch Your Info !!</button>
-          <button type="button" class="btn btn-outline-info mt-3 w-100" onclick="theme(true)"> Switch Theme !!</button>
+          <li class="list-group-item active bg-info sectionhead" onclick="hideshow('.menu3')"> MNIT Section <i class="down-arrow float-right mt-1 mr-2"></i></li>
+          <li class="list-group-item  menu menu3 d-none" onclick="leaderboard('Div1', this)"> 2nd year </li>
+          <li class="list-group-item  menu menu3 d-none" onclick="leaderboard('Educational', this)"> 1st year </li>
+          <li class="list-group-item  menu rounded-0 menu3 d-none" onclick="leaderboard('Other', this)"> Specific contest </li>
 
-          <li class="list-group-item bg-info active mt-3 rounded-top"> MNIT Leaderboard</li>
-          <li class="list-group-item  menu" onclick="leaderboard('Div1', this)"> 2nd year </li>
-          <li class="list-group-item  menu" onclick="leaderboard('Educational', this)"> 1st year </li>
-          <li class="list-group-item  menu" onclick="leaderboard('Other', this)"> Specific contest </li>
+          <button type="button" class="btn border-left-0 rounded-0 btn-outline-info mt-3 w-100" data-toggle="modal" data-target="#exampleModal"> Fetch Your Info !!</button>
+          <button type="button" class="btn border-left-0 rounded-0 btn-outline-info w-100" onclick="theme(true)"> Switch Theme !!</button>
         </div>
       </div>
 
-      <div class="col-md-9 col-sm-12 py-4 right">
+      <div class="col-md-10 col-sm-12 py-4 right">
         <div class="alert alert-info notf1">
           <h5> Welcome to Codeforces Contest-Portal </h5>
           <p> To know number of questions solved by you click on fetch your status. </p>
