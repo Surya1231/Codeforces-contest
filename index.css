@@ -62,9 +62,21 @@ body{
 
 .down-arrow {
   border: solid white;
-  border-width: 0 3px 3px 0;
+  border-width: 0 2px 2px 0;
   display: inline-block;
-  padding: 6px;
+  padding: 4px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+.bar{
+  width: 35px;
+  height: 4px;
+  background-color: #17a2b8;
+  margin: 8px 0;
+}
+
+
+.switcher:hover > .bar {
+  background-color: white;
 }
