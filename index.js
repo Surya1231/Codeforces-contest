@@ -25,9 +25,9 @@ function fill_contest_list(json){
   contest_list = {'Div1':[], 'Div2':[] , 'Div3':[], 'Educational':[], 'Hello':[],'Other':[] , 'Global':[]};
   json.result.forEach(function(item){
     if(item.name.indexOf("(Div. 3)") != -1) contest_list['Div3'].push([item.name,item.id]);
-    else if(item.name.indexOf("(Div. 2)") != -1) contest_list['Div2'].push([item.name,item.id]);
-    else if(item.name.indexOf("(Div. 1)") != -1) contest_list['Div1'].push([item.name,item.id]);
+    else if(item.name.indexOf("Div. 1") != -1) contest_list['Div1'].push([item.name,item.id]);
     else if(item.name.indexOf("Educational") != -1) contest_list['Educational'].push([item.name,item.id]);
+    else if(item.name.indexOf("Div. 2") != -1) contest_list['Div2'].push([item.name,item.id]);
     else if(item.name.indexOf("Global") != -1) contest_list['Global'].push([item.name,item.id]);
     else if(item.name.indexOf('Hello') !=-1 || item.name.indexOf('Good') !=-1 ) contest_list['Hello'].push([item.name,item.id]);
     else contest_list['Other'].push([item.name,item.id]);
@@ -38,7 +38,6 @@ function fill_contest_list(json){
 
 function fetch_user(user){
   user_name = user;
-
   localStorage.surya_user_name = user_name;
   $('.notf1').html('<h5> Fetching results for : '+user_name+'</h5>');
   $('.notf1').addClass('alert-danger');
@@ -84,7 +83,6 @@ function render(cont,element){
   last_rendered = cont;
   last_element = element;
   localStorage.surya_last_rendered = last_rendered;
-  // console.log(last_element);
 
   if(!contest_list[cont]){ $('#right-panel').html(err); return; }
   var l = contest_list[cont].length;
