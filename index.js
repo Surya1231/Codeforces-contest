@@ -22,12 +22,13 @@ function fetch_contest(){
 }
 
 function fill_contest_list(json){
-  contest_list = {'Div1':[], 'Div2':[] , 'Div3':[], 'Educational':[], 'Hello':[],'Other':[]};
+  contest_list = {'Div1':[], 'Div2':[] , 'Div3':[], 'Educational':[], 'Hello':[],'Other':[] , 'Global':[]};
   json.result.forEach(function(item){
     if(item.name.indexOf("(Div. 3)") != -1) contest_list['Div3'].push([item.name,item.id]);
     else if(item.name.indexOf("(Div. 2)") != -1) contest_list['Div2'].push([item.name,item.id]);
     else if(item.name.indexOf("(Div. 1)") != -1) contest_list['Div1'].push([item.name,item.id]);
     else if(item.name.indexOf("Educational") != -1) contest_list['Educational'].push([item.name,item.id]);
+    else if(item.name.indexOf("Global") != -1) contest_list['Global'].push([item.name,item.id]);
     else if(item.name.indexOf('Hello') !=-1 || item.name.indexOf('Good') !=-1 ) contest_list['Hello'].push([item.name,item.id]);
     else contest_list['Other'].push([item.name,item.id]);
   });
