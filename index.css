@@ -13,6 +13,8 @@ body{
 
 .row,.bg-dark{
   height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
 }
 
 .sectionhead {
