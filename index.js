@@ -136,7 +136,7 @@ function render(cont,element){
     var row_2 = '<td>0</td>';
     var row_3 = '<td>0</td>';
 
-    if(total_questions[item[1]]) row_3 = '<td>'+ total_questions[item[1]].join(' ')+'</td>';
+    if(total_questions[item[1]]) { total_ques += total_questions[item[1]].length; row_3 = '<td>'+ total_questions[item[1]].join(' ')+'</td>';}
     else row_3 = '<td>Processing</td>';
 
     if(user_name && user_contest[item[1]] && user_contest[item[1]].size > 0){
@@ -148,7 +148,6 @@ function render(cont,element){
       c+=1;
       row_2 = '<td class="bg-info">'+arr.join(' ')+'</td>'
       if(total_questions[item[1]]) {
-        total_ques += total_questions[item[1]].length;
         var difference = total_questions[item[1]].filter(item => !arr.includes(item));
         if(difference.length) row_3 = '<td class="bg-danger">'+ difference.join(' ')+'</td>';
         else { bg_class = "bg-light-completed"; row_3 = '<td class="bg-success">Completed</td>' }
