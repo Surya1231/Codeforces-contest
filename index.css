@@ -57,9 +57,16 @@ body{
 }
 
 .ddark > #right-panel > table > tbody > .bg-light{
-  background-color: #194745 !important;
+  background-color: #0e1620  !important;
   color: white !important;
 }
+
+.ddark > #right-panel > table > tbody > .bg-light-completed{
+  background-color: #0f2216!important;
+  color: white !important;
+}
+
+
 
 .down-arrow {
   border: solid white;
