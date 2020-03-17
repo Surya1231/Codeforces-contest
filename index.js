@@ -2,7 +2,6 @@ var user_name = localStorage.surya_user_name ? localStorage.surya_user_name : nu
 var contest_list = localStorage.surya_contest_list ? localStorage.surya_contest_list: {};
 var user_contest = localStorage.surya_user_contest ? localStorage.surya_user_contest: {};
 var last_rendered = localStorage.surya_last_rendered ? localStorage.surya_last_rendered:"Div3";
-// var total_questions =  {1:['A', 'B', 'C'],2:['A', 'B', 'C'],3:['A', 'B', 'C', 'D'],4:['A', 'B', 'C', 'D'],5:['A', 'B', 'C', 'D', 'E'],6:['A', 'B', 'C', 'D', 'E'],7:['A', 'B', 'C', 'D', 'E'],8:['A', 'B', 'C', 'D', 'E'],9:['A', 'B', 'C', 'D', 'E'],10:['A', 'B', 'C', 'D', 'E'],11:['A', 'B', 'C', 'D', 'E'],12:['A', 'B', 'C', 'D', 'E'],}
 var last_element = ".sectionhead";
 
 
@@ -40,40 +39,6 @@ function fill_contest_list(json){
   localStorage.surya_contest_list = JSON.stringify(contest_list);
   render(last_rendered,last_element);
 }
-
-
-
-// function fill_question(id){
-//
-//   var finish = false;
-//   var problems;
-//   function fetch_questions(id){
-//     console.log(id);
-//     var xhr = new XMLHttpRequest();
-//     var url = "https://codeforces.com/api/contest.standings?contestId="+id+"&from=1&count=1";
-//     xhr.open("GET", url, true);
-//     xhr.onreadystatechange = function () {
-//         if (xhr.readyState === 4 && xhr.status === 200) {
-//             var json = JSON.parse(xhr.responseText);
-//             console.log(json);
-//             problems =  json.result.problems;
-//             finish = true;
-//         }
-//         console.log(xhr.readyState);
-//     };
-//     xhr.send();
-//   }
-//
-//   console.log("fill",id);
-//   for(var i = last_fetch_total_questions+1 ; i<=id ; i++){
-//     total_questions[i] = [];
-//     finish = false;
-//     fetch_questions(i);
-//     // while(!finish);
-//     // problems.forEach(item => total_questions[i].push(item.index));
-//   }
-//   render(last_rendered,last_element);
-// }
 
 function fetch_user(user){
   user_name = user;
@@ -180,21 +145,32 @@ function mob(){
 }
 
 function new_user(){
-  user_list = {};
   var newuser = $('#username').val();
   fetch_user(newuser);
+}
+
+function reset_user(){
+  user_contest = {};
+  user_name = null;
+  localStorage.surya_user_name = null;
+  localStorage.removeItem("surya_user_contest");
+  $('.notf1').html('<h5>Welcome to Codeforces Contest-Portal </h5><p> To know number of questions solved by you click on fetch your status. </p>');
+  render(last_rendered,last_element);
 }
 
 function initial(){
   try{ contest_list = JSON.parse(contest_list);}
   catch(err){ console.log(err); contest_list = {}; }
-  try{ fill_user_contest(JSON.parse(user_contest));}
-  catch(err){ console.log(err); user_contest ={}; }
+
+  if(user_name && user_name!="null"){
+    try{ fill_user_contest(JSON.parse(user_contest));}
+    catch(err){ console.log(err); user_contest ={}; }
+  }
 
   console.log(user_name);
   if(Object.keys(contest_list).length != 0) { console.log("Retrived Last"); render(last_rendered,last_element);}
   fetch_contest();
-  if(user_name) fetch_user(user_name);
+  if(user_name && user_name!="null") fetch_user(user_name);
 }
 
 initial();
