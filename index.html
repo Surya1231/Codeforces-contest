@@ -46,11 +46,14 @@
           <li class="list-group-item menu menu2 d-none" onclick="codechef()"> Lunchtime </li>
 
           <li class="list-group-item active bg-info sectionhead" onclick="hideshow('.menu3')"> MNIT Section <i class="down-arrow float-right mt-1 mr-2"></i></li>
-          <li class="list-group-item  menu menu3 d-none" onclick="leaderboard('Div1', this)"> 2nd year leaderboard</li>
-          <li class="list-group-item  menu menu3 d-none" onclick="leaderboard('Educational', this)"> 1st year leaderboard</li>
-          <li class="list-group-item  menu menu3 d-none" onclick="leaderboard('Educational', this)"> last-contest leaderboard</li>
-          <li class="list-group-item  menu rounded-0 menu3 d-none" onclick="leaderboard('Other', this)"> Specific contest leaderboard</li>
-          <li class="list-group-item  menu rounded-0 menu3 d-none" onclick="leaderboard('Other', this)"> Interview Discussion Portal</li>
+          <li class="list-group-item  menu menu3 d-none " onclick="contest_leaderboard(-1,this)"> Recent-contest leaderboard</li>
+          <li class="list-group-item  menu menu3 d-none" onclick="all_time_leaderboard(this)"> 2<sup>nd</sup> Year Codeforces</li>
+          <li class="list-group-item  menu menu3 d-none " onclick="all_time_leaderboard(this)"> 2<sup>nd</sup> Year Codechef</li>
+          <li class="list-group-item  menu menu3 d-none" onclick="codechef()"> 1<sup>st</sup> Year Codeforces</li>
+          <li class="list-group-item  menu menu3 d-none " onclick="codechef()"> 1<sup>st</sup> Year Codechef</li>
+          <li class="list-group-item  menu menu3 d-none zsp" data-toggle="modal" data-target="#select_contest"> Specific-contest leaderboard</li>
+          <!-- <li class="list-group-item  menu rounded-0 menu3 d-none" onclick="leaderboard('Other', this)"> Specific contest leaderboard</li>
+          <li class="list-group-item  menu rounded-0 menu3 d-none" onclick="leaderboard('Other', this)"> Interview Discussion Portal</li> -->
 
           <button type="button" class="btn border-left-0 rounded-0 btn-outline-info mt-3 w-100" data-toggle="modal" data-target="#exampleModal"> Fetch Your Info !!</button>
           <button type="button" class="btn border-left-0 rounded-0 btn-outline-info w-100" onclick="theme(true)"> Switch Theme !!</button>
@@ -108,6 +111,30 @@
         </div>
       </div>
 
+      <div class="modal fade" id="select_contest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title"> Fetch Specific Contest leaderboard </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                  <label for="email">Codeforces contestId:</label>
+                  <input type="number" class="form-control" id="c_id" required>
+                  <small class="form-text text-muted"> You can find contest id in url of contest. </small>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit"onclick="contest_leaderboard(1,'.zsp')" data-dismiss="modal" class="btn btn-primary">Fetch Info</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="modal fade" id="feature_request" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -131,7 +158,7 @@
 
         <script type="text/javascript" src="total.js"> </script>
         <script type="text/javascript" src="index.js"> </script>
-        <script type="text/javascript" src="index2.js"> </script>
+        <script type="text/javascript" src="mnit.js"> </script>
     </div>
   </body>
 </html>

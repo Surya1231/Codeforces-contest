@@ -3,6 +3,7 @@ var contest_list = localStorage.surya_contest_list ? localStorage.surya_contest_
 var user_contest = localStorage.surya_user_contest ? localStorage.surya_user_contest: {};
 var last_rendered = localStorage.surya_last_rendered ? localStorage.surya_last_rendered:"Div3";
 var last_element = ".sectionhead";
+var recent_id = localStorage.surya_recent_id ? localStorage.surya_recent_id : 1300;
 
 
 var err = '<div class="alert alert-danger"><h4> Codeforces Servers may be down or you may not have working Internet connection <br> Please refresh !!</h4> </div>'
@@ -25,9 +26,9 @@ function fetch_contest(){
 function fill_contest_list(json){
   contest_list = {'Div1':[], 'Div2':[] , 'Div3':[], 'Educational':[], 'Hello':[],'Other':[] , 'Global':[]};
 
-  var max_id = 0;
   json.result.forEach(function(item){
-    if(max_id<item.id) max_id = item.id;
+    if(recent_id<item.id && item.phase == "FINISHED" && (item.name.indexOf("Educational") != -1 || item.name.indexOf("(Div. 3)") != -1 || item.name.indexOf("Div. 2") != -1 ) ) recent_id = item.id;
+
     if(item.name.indexOf("(Div. 3)") != -1) contest_list['Div3'].push([item.name,item.id]);
     else if(item.name.indexOf("Div. 1") != -1) contest_list['Div1'].push([item.name,item.id]);
     else if(item.name.indexOf("Educational") != -1) contest_list['Educational'].push([item.name,item.id]);
@@ -37,7 +38,8 @@ function fill_contest_list(json){
     else contest_list['Other'].push([item.name,item.id]);
   });
   localStorage.surya_contest_list = JSON.stringify(contest_list);
-  render(last_rendered,last_element);
+  localStorage.surya_recent_id = recent_id;
+  if(last_rendered!=-1) render(last_rendered,last_element);
 }
 
 function fetch_user(user){
@@ -76,11 +78,12 @@ function fill_user_contest(json){
     $('.notf1').removeClass('alert-danger');
     $('.notf1').html('<h5> Successfuly fetched results for : '+user_name+'</h5>');
     if(Object.keys(contest_list).length === 0) fetch_contest();
-    render(last_rendered,last_element);
+    if(last_rendered!=-1) render(last_rendered,last_element);
   }
 }
 
 function render(cont,element){
+  $('.notf1').removeClass("d-none")
   $('#right-panel').html(wait);
   $('.menu').removeClass("list-group-item-primary");
   $(element).addClass("list-group-item-primary");
@@ -135,7 +138,7 @@ function theme(val){
 }
 
 function hideshow(c){
-  console.log("Menu Toggled");
+  $('.menu').addClass('d-none');
   $(c).toggleClass('d-none');
 }
 
@@ -146,6 +149,7 @@ function mob(){
 
 function new_user(){
   var newuser = $('#username').val();
+  $('.notf1').removeClass("d-none")
   fetch_user(newuser);
 }
 
