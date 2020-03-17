@@ -2,7 +2,9 @@ var user_name = localStorage.surya_user_name ? localStorage.surya_user_name : nu
 var contest_list = localStorage.surya_contest_list ? localStorage.surya_contest_list: {};
 var user_contest = localStorage.surya_user_contest ? localStorage.surya_user_contest: {};
 var last_rendered = localStorage.surya_last_rendered ? localStorage.surya_last_rendered:"Div3";
+// var total_questions =  {1:['A', 'B', 'C'],2:['A', 'B', 'C'],3:['A', 'B', 'C', 'D'],4:['A', 'B', 'C', 'D'],5:['A', 'B', 'C', 'D', 'E'],6:['A', 'B', 'C', 'D', 'E'],7:['A', 'B', 'C', 'D', 'E'],8:['A', 'B', 'C', 'D', 'E'],9:['A', 'B', 'C', 'D', 'E'],10:['A', 'B', 'C', 'D', 'E'],11:['A', 'B', 'C', 'D', 'E'],12:['A', 'B', 'C', 'D', 'E'],}
 var last_element = ".sectionhead";
+
 
 var err = '<div class="alert alert-danger"><h4> Codeforces Servers may be down or you may not have working Internet connection <br> Please refresh !!</h4> </div>'
 var wait = '<div class="alert alert-success"><h4> We are fetching contest for you please wait ..... <br> Do not refresh the page</h4> </div>'
@@ -23,7 +25,10 @@ function fetch_contest(){
 
 function fill_contest_list(json){
   contest_list = {'Div1':[], 'Div2':[] , 'Div3':[], 'Educational':[], 'Hello':[],'Other':[] , 'Global':[]};
+
+  var max_id = 0;
   json.result.forEach(function(item){
+    if(max_id<item.id) max_id = item.id;
     if(item.name.indexOf("(Div. 3)") != -1) contest_list['Div3'].push([item.name,item.id]);
     else if(item.name.indexOf("Div. 1") != -1) contest_list['Div1'].push([item.name,item.id]);
     else if(item.name.indexOf("Educational") != -1) contest_list['Educational'].push([item.name,item.id]);
@@ -35,6 +40,40 @@ function fill_contest_list(json){
   localStorage.surya_contest_list = JSON.stringify(contest_list);
   render(last_rendered,last_element);
 }
+
+
+
+// function fill_question(id){
+//
+//   var finish = false;
+//   var problems;
+//   function fetch_questions(id){
+//     console.log(id);
+//     var xhr = new XMLHttpRequest();
+//     var url = "https://codeforces.com/api/contest.standings?contestId="+id+"&from=1&count=1";
+//     xhr.open("GET", url, true);
+//     xhr.onreadystatechange = function () {
+//         if (xhr.readyState === 4 && xhr.status === 200) {
+//             var json = JSON.parse(xhr.responseText);
+//             console.log(json);
+//             problems =  json.result.problems;
+//             finish = true;
+//         }
+//         console.log(xhr.readyState);
+//     };
+//     xhr.send();
+//   }
+//
+//   console.log("fill",id);
+//   for(var i = last_fetch_total_questions+1 ; i<=id ; i++){
+//     total_questions[i] = [];
+//     finish = false;
+//     fetch_questions(i);
+//     // while(!finish);
+//     // problems.forEach(item => total_questions[i].push(item.index));
+//   }
+//   render(last_rendered,last_element);
+// }
 
 function fetch_user(user){
   user_name = user;
@@ -86,31 +125,41 @@ function render(cont,element){
 
   if(!contest_list[cont]){ $('#right-panel').html(err); return; }
   var l = contest_list[cont].length;
-  var table = '<table class="table table-bordered"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">Contest & URL</th><th scope="col">Solved</th></tr></thead><tbody>'
-  var ques = 0, c = 0;
+  var table = '<table class="table table-bordered"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">Contest & URL</th><th scope="col">Solved</th><th scope="col">Unsolved</th></tr></thead><tbody>'
+  var ques = 0, c = 0 , total_ques = 0;
+
   contest_list[cont].forEach(function(item , index){
     var link = "https://codeforces.com/contest/"+item[1];
-    var cur = item[0]+' '+' :  <a target="_blank" href="'+link+'">'+link+'</a>';
+    var bg_class = "";
+    var row_0 = '<th scope="row">'+(index+1)+'</th>';
+    var row_1 = '<td>'+item[0]+' '+' :  <a target="_blank" href="'+link+'">'+link+'</a></td>';
+    var row_2 = '<td>0</td>';
+    var row_3 = '<td>0</td>';
 
-    var bgg = "";
-    if(user_name && user_contest[item[1]] && user_contest[item[1]].size > 0){ bgg = "bg-light";}
-    table += '<tr class="'+bgg+'"><th scope="row">'+(index+1)+'</th><td>'+cur+'</td>';
+    if(total_questions[item[1]]) row_3 = '<td>'+ total_questions[item[1]].join(' ')+'</td>';
+    else row_3 = '<td>Processing</td>';
 
     if(user_name && user_contest[item[1]] && user_contest[item[1]].size > 0){
+      bg_class = "bg-light";
       var arr = [];
       for (let q of user_contest[item[1]]) arr.push(q);
       arr.sort();
       ques+=arr.length;
       c+=1;
-      table += '<td class="bg-info">'+arr.join(' ')+'</td></tr>';
+      row_2 = '<td class="bg-info">'+arr.join(' ')+'</td>'
+      if(total_questions[item[1]]) {
+        total_ques += total_questions[item[1]].length;
+        var difference = total_questions[item[1]].filter(item => !arr.includes(item));
+        if(difference.length) row_3 = '<td class="bg-danger">'+ difference.join(' ')+'</td>';
+        else { bg_class = "bg-light-completed"; row_3 = '<td class="bg-success">Completed</td>' }
+      }
+      else  row_3 = '<td class=" bg-danger">Processing</td>';
     }
-    else{
-      table += '<td> 0</td></tr>';
-    }
+    table += '<tr class='+bg_class+'>'+row_0+row_1+row_2+row_3+'</tr>'
   });
 
   table+="</tbody></table>";
-  var notf2 = '<h6 class="w-100"> No of Questions Solved : '+ques+'<span class="float-right"> No of Contest :' + c+'/'+l+'</span></h6>';
+  var notf2 = '<h6 class="w-100"> No of Questions Solved : '+ques+'/'+total_ques+'<span class="float-right"> No of Contest :' + c+'/'+l+'</span></h6>';
   $('#right-panel').html(table);
   $('.notf2').html(notf2);
   $('.sp').removeClass('supersp');

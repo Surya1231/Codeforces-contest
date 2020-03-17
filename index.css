@@ -82,6 +82,9 @@ body{
   background-color: white;
 }
 
+.bg-light-completed {
+    background-color: #daffe8!important;
+}
 /* .sp {
     position: absolute;
     width: 80%;
@@ -109,3 +112,11 @@ body{
     transition: left 0.5s linear;
   }
 }
+
+/* .bg-light{
+  background-color: #b8daff!important;
+}
+
+.table-bordered td,th{
+  border-color: black !important;
+} */
