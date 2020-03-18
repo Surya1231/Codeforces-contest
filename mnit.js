@@ -56,7 +56,6 @@ function render_alltime_leaderboard(json){
   var notf2 = '<h6> Codeforces leaderboard 2nd year MNIT(Jaipur) </h6>';
   $('#right-panel').html(table);
   $('.notf2').html(notf2);
-  $('.sp').removeClass('supersp');
 }
 
 
@@ -101,7 +100,6 @@ function render_contest_leaderboard(contest , json){
   console.log(contest);
   $('#right-panel').html(table);
   $('.notf2').html(notf2);
-  $('.sp').removeClass('supersp');
 }
 
 
@@ -109,6 +107,7 @@ function all_time_leaderboard(element){
   $('.notf1').addClass("d-none")
   $('.menu').removeClass("list-group-item-primary");
   $(element).addClass("list-group-item-primary");
+  $('.sp').removeClass('supersp');
   console.log(second_year_cf_leaderboard);
     if(second_year_cf_leaderboard){
       render_alltime_leaderboard(second_year_cf_leaderboard);
@@ -123,6 +122,7 @@ function contest_leaderboard(id , element){
   $('.notf1').addClass("d-none");
   $('.menu').removeClass("list-group-item-primary");
   $(element).addClass("list-group-item-primary");
+  $('.sp').removeClass('supersp');
   $('#right-panel').html(' ');
   if(id==-1) id = recent_id;
   else id = $('#c_id').val();
