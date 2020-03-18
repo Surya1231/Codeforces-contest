@@ -82,7 +82,7 @@ function fetch_contest_standing(id,handles_string){
 
 function render_contest_leaderboard(contest , json){
   last_rendered = -1;
-  var table = '<table class="table table-bordered table-striped"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col"> Rank </th> <th scope="col">Score</th></tr></thead><tbody>'
+  var table = '<table class="table table-bordered table-striped"><thead class="thead-dark"><tr><th scope="col">#</th><th scope="col">Username</th><th scope="col"> Score </th> <th scope="col"> Rank </th></tr></thead><tbody>'
   json.forEach((item,index) => {
     console.log(item);
     var rank = item.rank;
@@ -91,8 +91,8 @@ function render_contest_leaderboard(contest , json){
     var link = 'https://codeforces.com/profile/'+user_name;
     var row_0 = '<th scope="row">'+(index+1)+'</th>';
     var row_1 = '<td><a target="_blank" href="'+link+'">'+user_name+'</a></td>';
-    var row_2 = '<td>'+rank+'</td>';
-    var row_3 = '<td>'+point+'</td>';
+    var row_3 = '<td>'+rank+'</td>';
+    var row_2 = '<td>'+point+'</td>';
     table += '<tr>'+row_0+row_1+row_2+row_3+'</tr>';
   });
   var link = "https://codeforces.com/contest/"+contest.id;
