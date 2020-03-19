@@ -27,7 +27,7 @@ function fill_contest_list(json){
   contest_list = {'Div1':[], 'Div2':[] , 'Div3':[], 'Educational':[], 'Hello':[],'Other':[] , 'Global':[]};
 
   json.result.forEach(function(item){
-    if(recent_id<item.id && item.phase == "FINISHED" && (item.name.indexOf("Educational") != -1 || item.name.indexOf("(Div. 3)") != -1 || item.name.indexOf("Div. 2") != -1 ) ) recent_id = item.id;
+    if(recent_id<item.id && item.phase == "FINISHED" && (item.name.indexOf("Educational") != -1 || item.name.indexOf("(Div. 3)") != -1 || item.name.indexOf("Div. 2") != -1 || item.name.indexOf("Global") != -1) ) recent_id = item.id;
 
     if(item.name.indexOf("(Div. 3)") != -1) contest_list['Div3'].push([item.name,item.id]);
     else if(item.name.indexOf("Div. 1") != -1) contest_list['Div1'].push([item.name,item.id]);
