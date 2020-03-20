@@ -114,13 +114,13 @@ function render(cont,element){
       arr.sort();
       ques+=arr.length;
       c+=1;
-      row_2 = '<td class="bg-info">'+arr.join(' ')+'</td>'
+      row_2 = '<td class="bg-info text-white">'+arr.join(' ')+'</td>'
       if(total_questions[item[1]]) {
         var difference = total_questions[item[1]].filter(item => !arr.includes(item));
-        if(difference.length) row_3 = '<td class="bg-danger">'+ difference.join(' ')+'</td>';
-        else { bg_class = "bg-light-completed"; row_3 = '<td class="bg-success">Completed</td>' }
+        if(difference.length) row_3 = '<td class="bg-danger text-white">'+ difference.join(' ')+'</td>';
+        else { bg_class = "bg-light-completed"; row_3 = '<td class="bg-success text-white">Completed</td>' }
       }
-      else  row_3 = '<td class=" bg-danger">Processing</td>';
+      else  row_3 = '<td class=" bg-danger text-white">Processing</td>';
     }
     table += '<tr class='+bg_class+'>'+row_0+row_1+row_2+row_3+'</tr>'
   });
