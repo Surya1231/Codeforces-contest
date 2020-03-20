@@ -6,7 +6,8 @@
   - A platform to make your coding experience better.
   - Category wise contest of codeforces
   - Track your live progress
-  - A speicla section designed for MNIT college
+  - A special section designed for MNIT college
+  - Auto updation of leaderboard
     
 #### Technologies :-
   - Html
