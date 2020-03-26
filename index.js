@@ -5,6 +5,8 @@ var last_rendered = localStorage.surya_last_rendered ? localStorage.surya_last_r
 var last_element = ".sectionhead";
 var recent_id = localStorage.surya_recent_id ? localStorage.surya_recent_id : 1300;
 
+// console.log(user_contest);
+
 
 var err = '<div class="alert alert-danger"><h4> Codeforces Servers may be down or you may not have working Internet connection <br> Please refresh !!</h4> </div>'
 var wait = '<div class="alert alert-success"><h4> We are fetching contest for you please wait ..... <br> Do not refresh the page</h4> </div>'
@@ -16,7 +18,6 @@ function fetch_contest(){
   xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
           var json = JSON.parse(xhr.responseText);
-          console.log("Successfuly fetched");
           fill_contest_list(json);
       }
   };
