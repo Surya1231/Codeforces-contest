@@ -5,7 +5,7 @@ var recent_contest_leaderboard = localStorage.surya_recent_contest_leaderboard ?
 
 
 //handles=vishwas345code;manhar;adigupta_;hemantvardani;hope2002;Hepheastus;Kaustav1%20;Abhishek565;hitesh_singh_rana;Kaustav1%20;Kaustav1%20;abhayshivhare;vishwas345code;manhar;adigupta_;Kaustav2;Abhishek566;hitesh_singh_rana;abhayshivhare;vishwas345code;manhar;adigupta_;navjot1234;Kaustav3;Abhishek567;hitesh_singh_rana;vishwas345code
-
+//The first year work is incomplete
 
 if(localStorage.second_year_cf_leaderboard){
   try{
