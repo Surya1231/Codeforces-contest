@@ -22,7 +22,7 @@
 - Update [index.js](index.js)
 - For any Css update please read about [Bootstrap](https://getbootstrap.com/docs/4.5/getting-started/introduction/)
 - Updating total.js
-  - Use (total.py)[total.py] for updating total.js
+  - Use [total.py](total.py) for updating total.js
   - Please remove the last ``` } ``` from the total.js
   - Run the python script ( You must have request and beutifulsoup installed)
 - Codechef Status
