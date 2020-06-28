@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
-    <link rel="shortcut icon" href="logo.png" >
-    <title> Codeshow-Contest </title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <link rel="shortcut icon" href="logo.png" />
+    <title>Codeshow-Contest</title>
   </head>
 
   <body>
     <div class="row mx-0">
-
-      <div class="col-md-2 col-sm-12 px-0 bg-dark pp sp" >
-        <div class=" w-100 pr-2 text-white">
+      <div class="col-md-2 col-sm-12 px-0 bg-dark pp sp">
+        <div class="w-100 pr-2 text-white">
           <div class="h-100 d-block float-left pl-3 pt-3">
-            <h5> Codeshows </h5>
+            <h5>Codeshows</h5>
           </div>
-          <button type="button" class=" d-md-none btn btn-outline-info my-2 switcher float-right" onclick="mob()">
+          <button
+            type="button"
+            class="d-md-none btn btn-outline-info my-2 switcher float-right"
+            onclick="mob()"
+          >
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
@@ -28,137 +41,337 @@
           <div class="clearfix"></div>
         </div>
         <div class="left-panel pb-4">
+          <li
+            class="list-group-item active bg-info rounded-0 sectionhead"
+            onclick="hideshow('.menu1')"
+          >
+            Codeforces Contest <i class="down-arrow float-right mt-1 mr-2"></i>
+          </li>
+          <li
+            class="list-group-item menu first menu1"
+            onclick="render('Div3' , this)"
+          >
+            Div3 Contest
+          </li>
+          <li class="list-group-item menu menu1" onclick="render('Div2', this)">
+            Div2 Contest
+          </li>
+          <li class="list-group-item menu menu1" onclick="render('Div1', this)">
+            Div1 Contest
+          </li>
+          <li
+            class="list-group-item menu menu1"
+            onclick="render('Educational', this)"
+          >
+            Educational Contest
+          </li>
+          <li
+            class="list-group-item menu menu1"
+            onclick="render('Hello', this)"
+          >
+            Hello/Good Bye
+          </li>
+          <li
+            class="list-group-item menu menu1"
+            onclick="render('Global', this)"
+          >
+            Global Round
+          </li>
+          <li
+            class="list-group-item menu menu1"
+            onclick="render('Other', this)"
+          >
+            Other Contest
+          </li>
 
+          <li
+            class="list-group-item active bg-info sectionhead"
+            onclick="hideshow('.menu2')"
+          >
+            Codechef Contest <i class="down-arrow float-right mt-1 mr-2"></i>
+          </li>
+          <li class="list-group-item menu menu2 d-none" onclick="codechef()">
+            Long Challenge
+          </li>
+          <li class="list-group-item menu menu2 d-none" onclick="codechef()">
+            Cook Off
+          </li>
+          <li class="list-group-item menu menu2 d-none" onclick="codechef()">
+            Lunchtime
+          </li>
 
-
-          <li class="list-group-item active bg-info rounded-0 sectionhead" onclick="hideshow('.menu1')"> Codeforces Contest <i class="down-arrow float-right mt-1 mr-2"></i></li>
-          <li class="list-group-item menu first menu1" onclick="render('Div3' , this)"> Div3 Contest</li>
-          <li class="list-group-item menu menu1" onclick="render('Div2', this)"> Div2 Contest</li>
-          <li class="list-group-item menu menu1" onclick="render('Div1', this)"> Div1 Contest</li>
-          <li class="list-group-item menu menu1" onclick="render('Educational', this)"> Educational Contest</li>
-          <li class="list-group-item menu menu1" onclick="render('Hello', this)"> Hello/Good Bye</li>
-          <li class="list-group-item menu menu1" onclick="render('Global', this)"> Global Round </li>
-          <li class="list-group-item menu menu1" onclick="render('Other', this)"> Other Contest</li>
-
-          <li class="list-group-item active bg-info sectionhead" onclick="hideshow('.menu2')"> Codechef Contest <i class="down-arrow float-right mt-1 mr-2"></i></li>
-          <li class="list-group-item menu menu2 d-none" onclick="codechef()"> Long Challenge </li>
-          <li class="list-group-item menu menu2 d-none" onclick="codechef()"> Cook Off </li>
-          <li class="list-group-item menu menu2 d-none" onclick="codechef()"> Lunchtime </li>
-
-          <li class="list-group-item active bg-info sectionhead" onclick="hideshow('.menu3')"> MNIT Section <i class="down-arrow float-right mt-1 mr-2"></i></li>
-          <li class="list-group-item  menu menu3 d-none " onclick="contest_leaderboard(-1,this)"> Recent-contest leaderboard</li>
-          <li class="list-group-item  menu menu3 d-none" onclick="all_time_leaderboard(this)"> 2<sup>nd</sup> Year Codeforces</li>
-          <li class="list-group-item  menu menu3 d-none " onclick="all_time_leaderboard(this)"> 2<sup>nd</sup> Year Codechef</li>
-          <li class="list-group-item  menu menu3 d-none" onclick="codechef()"> 1<sup>st</sup> Year Codeforces</li>
-          <li class="list-group-item  menu menu3 d-none " onclick="codechef()"> 1<sup>st</sup> Year Codechef</li>
-          <li class="list-group-item  menu menu3 d-none zsp" data-toggle="modal" data-target="#select_contest"> Specific-contest leaderboard</li>
+          <li
+            class="list-group-item active bg-info sectionhead"
+            onclick="hideshow('.menu3')"
+          >
+            MNIT Section <i class="down-arrow float-right mt-1 mr-2"></i>
+          </li>
+          <li
+            class="list-group-item menu menu3 d-none"
+            onclick="contest_leaderboard(-1,this)"
+          >
+            Recent-contest leaderboard
+          </li>
+          <li
+            class="list-group-item menu menu3 d-none"
+            onclick="all_time_leaderboard(this)"
+          >
+            2<sup>nd</sup> Year Codeforces
+          </li>
+          <li
+            class="list-group-item menu menu3 d-none"
+            onclick="all_time_leaderboard(this)"
+          >
+            2<sup>nd</sup> Year Codechef
+          </li>
+          <li class="list-group-item menu menu3 d-none" onclick="codechef()">
+            1<sup>st</sup> Year Codeforces
+          </li>
+          <li class="list-group-item menu menu3 d-none" onclick="codechef()">
+            1<sup>st</sup> Year Codechef
+          </li>
+          <li
+            class="list-group-item menu menu3 d-none zsp"
+            data-toggle="modal"
+            data-target="#select_contest"
+          >
+            Specific-contest leaderboard
+          </li>
           <!-- <li class="list-group-item  menu rounded-0 menu3 d-none" onclick="leaderboard('Other', this)"> Specific contest leaderboard</li>
           <li class="list-group-item  menu rounded-0 menu3 d-none" onclick="leaderboard('Other', this)"> Interview Discussion Portal</li> -->
 
-          <button type="button" class="btn border-left-0 rounded-0 btn-outline-info mt-3 w-100" data-toggle="modal" data-target="#exampleModal"> Fetch Your Info !!</button>
-          <button type="button" class="btn border-left-0 rounded-0 btn-outline-info w-100" onclick="theme(true)"> Switch Theme !!</button>
-          <button type="button" class="btn border-left-0 rounded-0 btn-outline-info w-100" data-toggle="modal" data-target="#feature_request"> Request a feature !!</button>
-
+          <button
+            type="button"
+            class="btn border-left-0 rounded-0 btn-outline-info mt-3 w-100"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
+            Fetch Your Info !!
+          </button>
+          <button
+            type="button"
+            class="btn border-left-0 rounded-0 btn-outline-info w-100"
+            onclick="theme(true)"
+          >
+            Switch Theme !!
+          </button>
+          <button
+            type="button"
+            class="btn border-left-0 rounded-0 btn-outline-info w-100"
+            data-toggle="modal"
+            data-target="#feature_request"
+          >
+            Request a feature !!
+          </button>
         </div>
       </div>
 
       <div class="col-md-10 col-sm-12 py-4 right">
-
-          <button type="button" class="d-md-none btn btn-outline-info my-2 switcher" onclick="mob()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-          </button>
+        <h3>
+          Website is moving to
+          <a href="https://contestmania.web.app/"
+            >https://contestmania.web.app/</a
+          >
+        </h3>
+        <button
+          type="button"
+          class="d-md-none btn btn-outline-info my-2 switcher"
+          onclick="mob()"
+        >
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </button>
         <div class="alert alert-info notf1">
-          <h5> Welcome to Codeforces Contest-Portal </h5>
-          <p> To know number of questions solved by you click on fetch your status. </p>
+          <h5>Welcome to Codeforces Contest-Portal</h5>
+          <p>
+            To know number of questions solved by you click on fetch your
+            status.
+          </p>
         </div>
         <div class="alert alert-success notf2">
-          <h6 class="w-100"> No of Questions Solved : 0 <span class="float-right"> No of Contest : 0/0 </span></h6>
+          <h6 class="w-100">
+            No of Questions Solved : 0
+            <span class="float-right"> No of Contest : 0/0 </span>
+          </h6>
         </div>
         <div id="right-panel">
           <div class="alert alert-success">
-              <h4> We are fetching contest for you please wait .....</h4>
+            <h4>We are fetching contest for you please wait .....</h4>
           </div>
         </div>
       </div>
 
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"> Fetch Your Info</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Fetch Your Info
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                  <label for="email">Codeforces Username:</label>
-                  <input type="text" class="form-control" id="username" required>
-                  <small id="emailHelp" class="form-text text-muted">Once fetched data will be store in catche. Data will not lost on refreshing. </small>
-                </div>
-                <div class="fetch-info">
-
-                </div>
+              <div class="form-group">
+                <label for="email">Codeforces Username:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  required
+                />
+                <small id="emailHelp" class="form-text text-muted"
+                  >Once fetched data will be store in catche. Data will not lost
+                  on refreshing.
+                </small>
+              </div>
+              <div class="fetch-info"></div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit"onclick="reset_user()" data-dismiss="modal" class="btn btn-danger">Reset</button>
-              <button type="submit"onclick="new_user()" data-dismiss="modal" class="btn btn-primary">Fetch Info</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                onclick="reset_user()"
+                data-dismiss="modal"
+                class="btn btn-danger"
+              >
+                Reset
+              </button>
+              <button
+                type="submit"
+                onclick="new_user()"
+                data-dismiss="modal"
+                class="btn btn-primary"
+              >
+                Fetch Info
+              </button>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="modal fade" id="select_contest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div
+        class="modal fade"
+        id="select_contest"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title"> Fetch Specific Contest leaderboard </h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <h5 class="modal-title">Fetch Specific Contest leaderboard</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-                <div class="form-group">
-                  <label for="email">Codeforces contestId:</label>
-                  <input type="number" class="form-control" id="c_id" required>
-                  <small class="form-text text-muted"> You can find contest id in url of contest. </small>
-                </div>
+              <div class="form-group">
+                <label for="email">Codeforces contestId:</label>
+                <input type="number" class="form-control" id="c_id" required />
+                <small class="form-text text-muted">
+                  You can find contest id in url of contest.
+                </small>
+              </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit"onclick="contest_leaderboard(1,'.zsp')" data-dismiss="modal" class="btn btn-primary">Fetch Info</button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="submit"
+                onclick="contest_leaderboard(1,'.zsp')"
+                data-dismiss="modal"
+                class="btn btn-primary"
+              >
+                Fetch Info
+              </button>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="modal fade" id="feature_request" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div
+        class="modal fade"
+        id="feature_request"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" > Request a feature</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <h5 class="modal-title">Request a feature</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              Just comment with the details of the feture you want to add on this <a target="_blank" href="https://codeforces.com/blog/entry/74756"> link </a> .
+              Just comment with the details of the feture you want to add on
+              this
+              <a target="_blank" href="https://codeforces.com/blog/entry/74756">
+                link
+              </a>
+              .
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <a target="_blank" href="https://codeforces.com/blog/entry/74756"  class="btn btn-primary">Proceed to Blog</a>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <a
+                target="_blank"
+                href="https://codeforces.com/blog/entry/74756"
+                class="btn btn-primary"
+                >Proceed to Blog</a
+              >
             </div>
           </div>
         </div>
       </div>
 
-
-        <script type="text/javascript" src="total.js"> </script>
-        <script type="text/javascript" src="index.js"> </script>
-        <script type="text/javascript" src="mnit.js"> </script>
+      <script type="text/javascript" src="total.js"></script>
+      <script type="text/javascript" src="index.js"></script>
+      <script type="text/javascript" src="mnit.js"></script>
     </div>
   </body>
 </html>
